@@ -11,7 +11,11 @@ import SwiftUI
 struct Application: App {
     var body: some Scene {
         WindowGroup {
-            EmptyView()
+            LoginView(store: .init(
+                initialState: .init(email: .empty, password: .empty),
+                reducer: Login.reducer,
+                environment: .init())
+            )
         }
     }
 }
