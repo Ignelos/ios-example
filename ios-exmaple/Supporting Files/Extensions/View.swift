@@ -10,8 +10,8 @@ import SwiftUI
 
 public extension View {
     
-    func flexibleFrame() -> some View {
-        frame(maxWidth: .infinity, maxHeight: .infinity)
+    func flexibleFrame(alignment: Alignment = .center) -> some View {
+        frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
     }
     
 }

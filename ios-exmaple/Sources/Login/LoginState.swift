@@ -11,6 +11,7 @@ import ComposableArchitecture
 internal enum Login {
     
     private static let emailPattern = #"^\S+@\S+\.\S+$"#
+    private static let passwordLength = 6
     
     // MARK: -State
     
@@ -46,6 +47,10 @@ internal enum Login {
             self.password = password
         }
         
+        // Search
+        
+        var searchState: Search.State? = nil
+        
         // Validations
         
         var isEmailValid: Bool {
@@ -59,49 +64,73 @@ internal enum Login {
         }
         
         var isPasswordValid: Bool {
-            password.value.count >= 6
+            password.value.count >= passwordLength
         }
-        
-        // Button
-        
-        var isButtonDisabled: Bool { !(isEmailValid && isPasswordValid) }
-        
+
     }
     
     // MARK: -Action
     
     enum Action: Equatable, BindableAction {
         case binding(BindingAction<Login.State>)
+        
         case tappedLogin
+        case commitedSearchReducerAction(Search.Action)
+        
+        case dismissedSearch
     }
     
     // MARK: -Environemnt
     
-    struct Environemnt {
+    struct Environment {
         
     }
     
+    // MARK: - Reducer
+    
+    static let reducer = Reducer.combine(
+        searchReducer,
+        localReducer
+    )
+    
 }
 
-// MARK: - Reducer
+// MARK: - LocalReducer
 
-internal extension Login {
+private extension Login {
     
-    static let reducer = Reducer<Self.State, Self.Action, Self.Environemnt> { state, action, environment in
+    static let localReducer = Reducer<Self.State, Self.Action, Self.Environment> { state, action, environment in
         
         switch action {
         case .binding(\.$email.value):
-            state.email.caption = state.isEmailValid || state.email.value.isEmpty
+            state.email.caption = nil
+            
+        case .binding(\.$password.value):
+            state.password.caption = nil
+            
+        case .tappedLogin:
+            
+            state.email.caption = state.isEmailValid
                 ? nil
                 : "Invalid email format"
             
-        case .binding(\.$password.value):
-            state.password.caption = state.isPasswordValid || state.password.value.isEmpty
+            state.password.caption = state.isPasswordValid
                 ? nil
                 : "Password to short"
             
-        case .tappedLogin:
+            if state.isEmailValid && state.isPasswordValid {
+                state.searchState = .init()
+            }
+            
+        case .commitedSearchReducerAction:
             break
+            
+        case .dismissedSearch:
+            
+            state.email.value = ""
+            state.password.value = ""
+            
+            state.searchState = nil
             
         default:
             break
@@ -111,5 +140,19 @@ internal extension Login {
         return .none
     }
     .binding()
+    
+}
+
+// MARK: - SearchReducer
+
+private extension Login {
+    
+    static let searchReducer = Search.reducer
+        .optional()
+        .pullback(
+            state: \State.searchState,
+            action: /Action.commitedSearchReducerAction,
+            environment: { (_: Login.Environment) in .live() }
+        )
     
 }

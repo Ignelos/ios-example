@@ -18,6 +18,12 @@
 		DD2E1C34292D410B00E72881 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C33292D410B00E72881 /* Button.swift */; };
 		DD2E1C37292D419900E72881 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C36292D419900E72881 /* View.swift */; };
 		DD2E1C39292D4C6100E72881 /* TextFieldAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C38292D4C6100E72881 /* TextFieldAppearance.swift */; };
+		DD2E1C3D292D4D1F00E72881 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C3C292D4D1F00E72881 /* SearchState.swift */; };
+		DD2E1C3F292D4D2400E72881 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C3E292D4D2400E72881 /* SearchView.swift */; };
+		DD581FD5292D527200521722 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD581FD4292D527200521722 /* User.swift */; };
+		DD581FE3292D577C00521722 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD581FE2292D577C00521722 /* Error.swift */; };
+		DD581FE5292D588D00521722 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD581FE4292D588D00521722 /* Request.swift */; };
+		DD581FE8292D5D9500521722 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD581FE7292D5D9500521722 /* ListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,12 @@
 		DD2E1C33292D410B00E72881 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		DD2E1C36292D419900E72881 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DD2E1C38292D4C6100E72881 /* TextFieldAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAppearance.swift; sourceTree = "<group>"; };
+		DD2E1C3C292D4D1F00E72881 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
+		DD2E1C3E292D4D2400E72881 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		DD581FD4292D527200521722 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DD581FE2292D577C00521722 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		DD581FE4292D588D00521722 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		DD581FE7292D5D9500521722 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +96,10 @@
 		DD2E1BB1292D395F00E72881 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DD581FD0292D525900521722 /* API */,
+				DD2E1C40292D4E9100E72881 /* UI */,
 				DD2E1BBA292D3AD300E72881 /* Login */,
+				DD2E1C3B292D4D1700E72881 /* Search */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -114,7 +129,6 @@
 		DD2E1BC0292D3BB200E72881 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DD2E1C3A292D4C6400E72881 /* TextField */,
 				DD2E1C33292D410B00E72881 /* Button.swift */,
 			);
 			path = Views;
@@ -135,6 +149,50 @@
 				DD2E1C38292D4C6100E72881 /* TextFieldAppearance.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		DD2E1C3B292D4D1700E72881 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DD581FE6292D5D9000521722 /* Views */,
+				DD2E1C3C292D4D1F00E72881 /* SearchState.swift */,
+				DD2E1C3E292D4D2400E72881 /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DD2E1C40292D4E9100E72881 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DD2E1C3A292D4C6400E72881 /* TextField */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DD581FD0292D525900521722 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DD581FD3292D526E00521722 /* Models */,
+				DD581FE4292D588D00521722 /* Request.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DD581FD3292D526E00521722 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD581FD4292D527200521722 /* User.swift */,
+				DD581FE2292D577C00521722 /* Error.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD581FE6292D5D9000521722 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD581FE7292D5D9500521722 /* ListItem.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,12 +272,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD2E1BBF292D3AE200E72881 /* LoginView.swift in Sources */,
+				DD581FE5292D588D00521722 /* Request.swift in Sources */,
 				DD2E1C34292D410B00E72881 /* Button.swift in Sources */,
 				DD2E1BC2292D3BB700E72881 /* TextField.swift in Sources */,
 				DD2E1C31292D402600E72881 /* Spacing.swift in Sources */,
+				DD581FE3292D577C00521722 /* Error.swift in Sources */,
 				DD2E1BA3292D38B300E72881 /* Application.swift in Sources */,
+				DD2E1C3F292D4D2400E72881 /* SearchView.swift in Sources */,
 				DD2E1C39292D4C6100E72881 /* TextFieldAppearance.swift in Sources */,
+				DD581FE8292D5D9500521722 /* ListItem.swift in Sources */,
+				DD581FD5292D527200521722 /* User.swift in Sources */,
 				DD2E1C37292D419900E72881 /* View.swift in Sources */,
+				DD2E1C3D292D4D1F00E72881 /* SearchState.swift in Sources */,
 				DD2E1BBD292D3ADE00E72881 /* LoginState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

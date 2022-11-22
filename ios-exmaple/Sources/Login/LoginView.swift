@@ -28,6 +28,7 @@ internal struct LoginView: View {
             background()
             content()
         }
+        .background(searchNavigation())
     }
     
     // MARK: Components
@@ -50,17 +51,17 @@ internal struct LoginView: View {
                 Spacer()
                 
                 Text("Login")
-                    .font(.headline)
+                    .font(.title)
                 
                 Spacer()
                 
-                Self.TextField(
+                TextField(
                     placeholder: "Email",
                     text: viewStore.binding(\.$email.value)
                 )
                 .textFieldAppearance(\.caption, value: viewStore.email.caption)
                 
-                Self.TextField(
+                TextField(
                     placeholder: "Password",
                     text: viewStore.binding(\.$password.value)
                 )
@@ -71,7 +72,6 @@ internal struct LoginView: View {
                     title: "Login",
                     action: { viewStore.send(.tappedLogin) }
                 )
-                .disabled(viewStore.isButtonDisabled)
                 
                 Spacer()
                 Spacer()
@@ -79,6 +79,24 @@ internal struct LoginView: View {
             .animation(.default, value: viewStore.state)
         }
         .padding(.horizontal, Spacing.globalMargin)
+    }
+    
+    // MARK: - Navigation
+    
+    @ViewBuilder
+    private func searchNavigation() -> some View {
+        WithViewStore(store) { viewStore in
+            
+            let destination = IfLetStore(
+                store.scope(state: \.searchState, action: Login.Action.commitedSearchReducerAction),
+                then: SearchView.init
+            )
+            
+            let isPresented = viewStore.binding(get: { $0.searchState != nil }, send: .dismissedSearch)
+            
+            Color.clear
+                .sheet(isPresented: isPresented, content: { destination})
+        }
     }
     
 }
