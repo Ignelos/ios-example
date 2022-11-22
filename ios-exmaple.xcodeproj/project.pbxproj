@@ -17,6 +17,7 @@
 		DD2E1C31292D402600E72881 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C30292D402600E72881 /* Spacing.swift */; };
 		DD2E1C34292D410B00E72881 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C33292D410B00E72881 /* Button.swift */; };
 		DD2E1C37292D419900E72881 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C36292D419900E72881 /* View.swift */; };
+		DD2E1C39292D4C6100E72881 /* TextFieldAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2E1C38292D4C6100E72881 /* TextFieldAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		DD2E1C30292D402600E72881 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		DD2E1C33292D410B00E72881 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		DD2E1C36292D419900E72881 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DD2E1C38292D4C6100E72881 /* TextFieldAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,7 @@
 		DD2E1BC0292D3BB200E72881 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DD2E1BC1292D3BB700E72881 /* TextField.swift */,
+				DD2E1C3A292D4C6400E72881 /* TextField */,
 				DD2E1C33292D410B00E72881 /* Button.swift */,
 			);
 			path = Views;
@@ -124,6 +126,15 @@
 				DD2E1C36292D419900E72881 /* View.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD2E1C3A292D4C6400E72881 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				DD2E1BC1292D3BB700E72881 /* TextField.swift */,
+				DD2E1C38292D4C6100E72881 /* TextFieldAppearance.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				DD2E1BC2292D3BB700E72881 /* TextField.swift in Sources */,
 				DD2E1C31292D402600E72881 /* Spacing.swift in Sources */,
 				DD2E1BA3292D38B300E72881 /* Application.swift in Sources */,
+				DD2E1C39292D4C6100E72881 /* TextFieldAppearance.swift in Sources */,
 				DD2E1C37292D419900E72881 /* View.swift in Sources */,
 				DD2E1BBD292D3ADE00E72881 /* LoginState.swift in Sources */,
 			);
